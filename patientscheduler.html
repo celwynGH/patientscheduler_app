@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Patient Scheduler App</title>
+  <link rel="icon" type="image/png" href="images/pslogo.png">
+  <link rel="stylesheet" href="patientscheduler.css" />
+</head>
+<body>
+
+<header class="top">
+  <div>
+    <h1>Patient Scheduler</h1>
+    <p>Manage and organize patient appointments efficiently</p>
+  </div>
+  <div class="actions">
+    <button onclick="window.print()">🖨 Print</button>
+    <button class="primary" onclick="openModal()">➕ Add Appointment</button>
+  </div>
+</header>
+
+<section class="stats">
+  <div class="card">
+    <h4>Total Appointments</h4>
+    <span id="total">0</span>
+  </div>
+  <div class="card">
+    <h4>Today's Patients</h4>
+    <span id="today">0</span>
+  </div>
+  <div class="card">
+    <h4>Hourly Limit</h4>
+    <select id="hourLimit" onchange="saveLimit()">
+      <option>1</option>
+      <option selected>3</option>
+      <option>5</option>
+    </select>
+  </div>
+</section>
+
+<section class="search-bar">
+  <input id="search" placeholder="Search by name, address, reason, date..." oninput="render()" />
+  <button class="danger" onclick="clearAll()">🗑 Clear All</button>
+</section>
+
+<section class="table-card">
+  <h3>📅 Scheduled Appointments</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Patient Name</th>
+        <th>Address</th>
+        <th>Reason</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="list"></tbody>
+  </table>
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <h2>Schedule New Appointment</h2>
+
+    <label>Patient Name *</label>
+    <input id="name" />
+
+    <label>Address</label>
+    <textarea id="address"></textarea>
+
+    <label>Reason for Checkup</label>
+    <textarea id="reason"></textarea>
+
+    <div class="row">
+      <div>
+        <label>Date *</label>
+        <input type="date" id="date" />
+      </div>
+      <div>
+        <label>Time *</label>
+        <input type="time" id="time" />
+      </div>
+    </div>
+
+    <div class="modal-actions">
+      <button onclick="closeModal()">Cancel</button>
+      <button class="primary" onclick="addAppointment()">Schedule Appointment</button>
+    </div>
+  </div>
+</div>
+
+<script src="patientscheduler.js"></script>
+
+<div id="undoBar" class="undo-bar">
+  Appointment deleted
+  <button onclick="undoDelete()">Undo</button>
+</div>
+
+</body>
+</html>
