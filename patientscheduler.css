@@ -136,3 +136,74 @@ th {
   font-weight: bold;
   cursor: pointer;
 }
+
+/* =========================
+   MOBILE RESPONSIVE DESIGN
+========================= */
+@media (max-width: 768px) {
+
+  body {
+    padding: 10px;
+  }
+
+  /* Header stacks vertically */
+  .top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .actions {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+  }
+
+  .actions button {
+    flex: 1;
+    margin-left: 0;
+  }
+
+  /* Stats become vertical */
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  /* Search bar stacks */
+  .search-bar {
+    flex-direction: column;
+  }
+
+  .search-bar button {
+    width: 100%;
+  }
+
+  /* Table scroll horizontally */
+  .table-card {
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 600px;
+  }
+
+  /* Modal full width */
+  .modal-box {
+    width: 95%;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  /* Date & Time stack */
+  .row {
+    flex-direction: column;
+  }
+
+  /* Undo bar centered */
+  .undo-bar {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 15px;
+  }
+
+}
