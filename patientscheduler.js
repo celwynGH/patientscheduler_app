@@ -43,13 +43,48 @@ function addAppointment() {
     return;
   }
 
-  appointments.push({
-    name,
-    address,
-    reason,
-    date,
-    time
-  });
+  //appointments.push({
+   // name,
+    //address,
+   // reason,
+   // date,
+    //time
+  //});
+
+const appointment = {
+  name,
+  address,
+  reason,
+  date,
+  time
+};
+
+// Save locally
+appointments.push(appointment);
+save();
+
+// Send to Google Sheets
+fetch("https://script.google.com/macros/s/AKfycbyAp9WHqQI2mlk2kQNoDQeqxiSRFQyFQoWfZWfowiz32ujFjBE6oGjrLUB2LD1kD9jjpA/exec", {
+  method: "POST",
+  body: JSON.stringify(appointment)
+})
+.then(res => res.json())
+.then(data => console.log("Saved to Google Sheets:", data))
+.catch(err => console.error("Error:", err));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   save();
   closeModal();
