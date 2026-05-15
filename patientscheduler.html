@@ -17,7 +17,7 @@
     <p>Manage and organize patient appointments efficiently</p>
   </div>
   <div class="actions">
-    <button onclick="window.print()">🖨 Print</button>
+    <button onclick="window.print()">🖨️ Print</button>
     <button class="primary" onclick="openModal()">➕ Add Appointment</button>
   </div>
 </header>
@@ -43,7 +43,7 @@
 
 <section class="search-bar">
   <input id="search" placeholder="Search by name, address, reason, date..." oninput="render()" />
-  <button class="danger" onclick="clearAll()">🗑 Clear All</button>
+  <button class="danger" onclick="clearAll()">🚮 Clear All</button>
 </section>
 
 <section class="table-card">
@@ -51,12 +51,12 @@
   <table>
     <thead>
       <tr>
-        <th>Patient Name</th>
-        <th>Address</th>
-        <th>Reason</th>
-        <th>Date</th>
-        <th>Time</th>
-        <th>Actions</th>
+        <th>👥  Patient Name</th>
+        <th>🗺️  Address</th>
+        <th>🧾  Reason</th>
+        <th>🗓️  Date</th>
+        <th>🕒  Time</th>
+        <th>📋  Actions</th>
       </tr>
     </thead>
     <tbody id="list"></tbody>
